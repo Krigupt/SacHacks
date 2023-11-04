@@ -5,13 +5,14 @@ from forms import RegistrationForm, LoginForm
 
 import os
 #import util
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'krishna'
 
 @app.route("/")
 def home():
-    return "Hello World!"
+    return render_template('home.html', title='Home')
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -31,6 +32,11 @@ def register():
         flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route("/profiles", methods=['GET', 'POST'])
+def profiles():
+    form = RegistrationForm()
+    return render_template('profiles.html', title='Profiles', form=form)
 
 
 
