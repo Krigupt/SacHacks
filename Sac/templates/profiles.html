@@ -15,7 +15,7 @@
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin-top: 30px;
             padding: 20px;
         }
 
@@ -65,62 +65,29 @@
             font-weight: bold;
             cursor: pointer;
         }
+
+        .temp {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
+    <h2>Finding friends similar to you:</h2>
+    {% for (user, distance) in k_users.items() %}
     <div class="container">
-        <div class="product">
-            <div class="product-image">
-                <img src="your-product-image.jpg" alt="Product Image">
-            </div>
+        <div class="container">
+            <div class="product">
+                <div class="product-image"> 
+                </div>
 
-            <div class="product-details">
-                <h1 class="product-title">Fancy Product</h1>
-                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
-                <p class="product-price">$99.99</p>
-                <button class="product-button">Add to Cart</button>
+                <div class="product-details">
+                    <h1 class="product-title">User ID: {{user}}</h1>
+                    <p class="product-description">Similarity index: {{distance}}</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="product">
-            <div class="product-image">
-                <img src="your-product-image.jpg" alt="Product Image">
-            </div>
-            <div class="product-details">
-                <h1 class="product-title">Fancy Product</h1>
-                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
-                <p class="product-price">$99.99</p>
-                <button class="product-button">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="product">
-            <div class="product-image">
-                <img src="your-product-image.jpg" alt="Product Image">
-            </div>
-            <div class="product-details">
-                <h1 class="product-title">Fancy Product</h1>
-                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
-                <p class="product-price">$99.99</p>
-                <button class="product-button">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="product">
-            <div class="product-image">
-                <img src="your-product-image.jpg" alt="Product Image">
-            </div>
-            <div class="product-details">
-                <h1 class="product-title">Fancy Product</h1>
-                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
-                <p class="product-price">$99.99</p>
-                <button class="product-button">Add to Cart</button>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </body>
 </html>
 

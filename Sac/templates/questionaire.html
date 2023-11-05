@@ -3,627 +3,573 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
+        .category {
+            margin-top: 20px;
         }
 
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #000;
-            border-radius: 10px;
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0;
-        }
-
-        input[type="radio"] {
-            margin-right: 5px;
-        }
-
-        input[type="radio"]:checked + label {
-            font-weight: bold;
-        }
-
-        button {
-            background-color: #000;
-            color: #fff;
+        .btn-option {
+            border: 1px solid #ced4da;
             padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            margin: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        /* Add your desired styles */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+        .btn-option.active {
+            background-color: #007bff;
+            color: #fff;
+        }
 
-.dropbtn {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-label {
-    display: block;
-    padding: 8px 12px;
-}
-
-label input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-/* Style the dropdown when it's open */
-.dropdown.active .dropdown-content {
-    display: block;
-}
-
+        .btn-option:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
-    <form method="POST">
-        <h2>Personality Assessment</h2>
-        
-        <!-- Questions for each category -->
-    
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+    <form method="POST" class="container">
+        <h2 class="mb-4">Personality Assessment</h2>
 
+        <div class="category">
+            <h3>Name</h3>
+            <input type="text" id="name" name="name" class="form-control">
+        </div>
 
         <div class="category">
             <h3>Gender</h3>
-            <label>
-                <input type="radio" name="gender" value="1"> Male
-            </label>
-            <label>
-                <input type="radio" name="gender" value="2"> Female
-            </label>
-            <label>
-                <input type="radio" name="gender" value="3"> Other
-            </label>
-
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="gender" value="1"> Male
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="gender" value="2"> Female
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="gender" value="3"> Other
+                </label>
+            </div>
         </div>
 
         <div class="category">
             <h3>Occupation</h3>
-            <input type="text" id="occupation" name="occupation">
-
-            <!-- Repeat for other Q questions -->
+            <input type="text" id="occupation" name="occupation" class="form-control">
         </div>
 
-
-        
         <div class="category">
             <h3>I am the life of the party.</h3>
-            <label>
-                <input type="radio" name="Q1" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q1" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q1" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q1" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q1" value="5"> 5
-            </label>
-            
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q1" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q1" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q1" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q1" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q1" value="5"> 5
+                </label>
+            </div>
         </div>
 
         <div class="category">
             <h3>I don't talk a lot.</h3>
-            <label>
-                <input type="radio" name="Q2" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q2" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q2" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q2" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q2" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q2" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q2" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q2" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q2" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q2" value="5"> 5
+                </label>
+            </div>
         </div>
 
         <div class="category">
             <h3>I feel comfortable around people.</h3>
-            <label>
-                <input type="radio" name="Q3" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q3" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q3" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q3" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q3" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q3" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q3" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q3" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q3" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q3" value="5"> 5
+                </label>
+            </div>
         </div>
 
-        <div class="category">
-            <h3>vI keep in the background.</h3>
-            <label>
-                <input type="radio" name="Q4" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q4" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q4" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q4" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q4" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I start conversations.</h3>
-            <label>
-                <input type="radio" name="Q5" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q5" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q5" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q5" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q5" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I have little to say.</h3>
-            <label>
-                <input type="radio" name="Q6" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q6" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q6" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q6" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q6" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I talk to a lot of different people at parties.
-            </h3>
-            <label>
-                <input type="radio" name="Q7" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q7" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q7" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q7" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q7" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I don't like to draw attention to myself.
-            </h3>
-            <label>
-                <input type="radio" name="Q8" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q8" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q8" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q8" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q8" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I don't mind being the center of attention.</h3>
-            <label>
-                <input type="radio" name="Q9" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q9" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q9" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q9" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q9" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I am quiet around strangers.</h3>
-            <label>
-                <input type="radio" name="Q10" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q10" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q10" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q10" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q10" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
-
-        <div class="category">
-            <h3>I get stressed out easily.</h3>
-            <label>
-                <input type="radio" name="Q11" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q11" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q11" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q11" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q11" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
-        </div>
+        <!-- Repeat for other Q questions -->
 
         <div class="category">
             <h3>I am relaxed most of the time.</h3>
-            <label>
-                <input type="radio" name="Q12" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q12" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q12" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q12" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q12" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q12" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q12" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q12" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q12" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q12" value="5"> 5
+                </label>
+            </div>
         </div>
 
         <div class="category">
             <h3>I worry about things.</h3>
-            <label>
-                <input type="radio" name="Q13" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q13" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q13" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q13" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q13" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q13" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q13" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q13" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q13" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q13" value="5"> 5
+                </label>
+            </div>
         </div>
 
         <div class="category">
             <h3>I seldom feel blue.</h3>
-            <label>
-                <input type="radio" name="Q14" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q14" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q14" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q14" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q14" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q14" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q14" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q14" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q14" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q14" value="5"> 5
+                </label>
+            </div>
         </div>
 
         <div class="category">
             <h3>I am easily disturbed.</h3>
-            <label>
-                <input type="radio" name="Q15" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q15" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q15" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q15" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q15" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I get upset easily.</h3>
-            <label>
-                <input type="radio" name="Q16" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q16" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q16" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q16" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q16" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="1"> 1
+                </label>
+                <label class "btn btn-option">
+                    <input type="radio" name="Q16" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I change my mood a lot.</h3>
-            <label>
-                <input type="radio" name="Q17" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q17" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q17" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q17" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q17" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="3"> 3
+                </label>
+                <label class "btn btn-option">
+                    <input type="radio" name="Q17" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I have frequent mood swings.</h3>
-            <label>
-                <input type="radio" name="Q18" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q18" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q18" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q18" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q18" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I get irritated easily.</h3>
-            <label>
-                <input type="radio" name="Q19" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q19" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q19" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q19" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q19" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="3"> 3
+                </label>
+                <label class "btn btn-option">
+                    <input type="radio" name="Q19" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I often feel blue.</h3>
-            <label>
-                <input type="radio" name="Q20" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q20" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q120" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q20" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q20" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I feel little concern for others.</h3>
-            <label>
-                <input type="radio" name="Q21" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q21" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q21" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q21" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q21" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I am interested in people.</h3>
-            <label>
-                <input type="radio" name="Q22" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q22" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q22" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q22" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q22" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q22" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q22" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q22" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q22" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q22" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I insult people.</h3>
-            <label>
-                <input type="radio" name="Q23" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q23" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q23" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q23" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q23" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q23" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q23" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q23" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q23" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q23" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
-            <h3> I sympathize with others' feelings</h3>
-            <label>
-                <input type="radio" name="Q24" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q24" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q24" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q24" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q24" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <h3>I sympathize with others' feelings.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q24" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q24" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q24" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q24" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q24" value="5"> 5
+                </label>
+            </div>
         </div>
-
+        
         <div class="category">
             <h3>I am not interested in other people's problems.</h3>
-            <label>
-                <input type="radio" name="Q25" value="1"> 1
-            </label>
-            <label>
-                <input type="radio" name="Q25" value="2"> 2
-            </label>
-            <label>
-                <input type="radio" name="Q25" value="3"> 3
-            </label>
-            <label>
-                <input type="radio" name="Q25" value="4"> 4
-            </label>
-            <label>
-                <input type="radio" name="Q25" value="5"> 5
-            </label>
-            <!-- Repeat for other Q questions -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q25" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q25" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q25" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q25" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q25" value="5"> 5
+                </label>
+            </div>
         </div>
-        <button type="submit">Submit</button>
+        
+        <div class="category">
+            <h3>I am easily disturbed.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q15" value="5"> 5
+                </label>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h3>I get upset easily.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q16" value="5"> 5
+                </label>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h3>I change my mood a lot.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q17" value="5"> 5
+                </label>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h3>I have frequent mood swings.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q18" value="5"> 5
+                </label>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h3>I get irritated easily.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q19" value="5"> 5
+                </label>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h3>I often feel blue.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q20" value="5"> 5
+                </label>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h3>I feel little concern for others.</h3>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="1"> 1
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="2"> 2
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="3"> 3
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="4"> 4
+                </label>
+                <label class="btn btn-option">
+                    <input type="radio" name="Q21" value="5"> 5
+                </label>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="center-button">Submit</button>
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 {% endblock content %}

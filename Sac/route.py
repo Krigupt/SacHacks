@@ -3,6 +3,7 @@ from flask import render_template, url_for, flash, redirect,request,abort, sessi
 import os
 
 import pandas as pd
+import numpy as np
 from sklearn.neighbors import NearestNeighbors
 from Sac.forms import RegistrationForm, LoginForm,UpdateAccountForm,PostForm
 from Sac.models import User,Post
@@ -15,6 +16,7 @@ from flask_socketio import join_room, leave_room, send, SocketIO
 import random
 from string import ascii_uppercase
 
+data = {}
 
 
 @login_required
@@ -281,7 +283,7 @@ def questionaire():
         
         print(results)
         
-        df = pd.read_csv('data-final.csv', sep='\t') 
+        df = pd.read_csv('piplined_data.csv') 
         questions = pd.DataFrame(df, columns=['EXT1', 'EXT2', 'EXT3', 'EXT4', 'EXT5', 'EXT6', 'EXT7', 'EXT8', 'EXT9',
        'EXT10', 'EST1', 'EST2', 'EST3', 'EST4', 'EST5', 'EST6', 'EST7', 'EST8',
        'EST9', 'EST10', 'AGR1', 'AGR2', 'AGR3', 'AGR4', 'AGR5'])
@@ -298,24 +300,33 @@ def questionaire():
             
         print(temp)
 
-        nbrs = NearestNeighbors(n_neighbors=5, algorithm='ball_tree').fit(questions)
+        nbrs = NearestNeighbors(n_neighbors=3, algorithm='ball_tree').fit(questions)
 
         input_data = pd.DataFrame([temp], columns=['EXT1', 'EXT2', 'EXT3', 'EXT4', 'EXT5', 'EXT6', 'EXT7', 'EXT8', 'EXT9',
        'EXT10', 'EST1', 'EST2', 'EST3', 'EST4', 'EST5', 'EST6', 'EST7', 'EST8',
        'EST9', 'EST10', 'AGR1', 'AGR2', 'AGR3', 'AGR4', 'AGR5'])
 
-        distance, indices = nbrs.kneighbors(input_data)
+        distances, indices = nbrs.kneighbors(input_data)
 
-        print([x for x in indices[0]])
 
-        return redirect(url_for('profiles',))
+
+        for i in range(3):
+            data[indices[0][i]] = distances[0][i]
+
+        print(data)
+
+        return redirect(url_for('profiles'))
     
     return render_template('questionaire.html', title='Questionaire')
 
 @app.route("/profiles", methods=['GET', 'POST'])
 def profiles():
-    print(request.method)
     form = RegistrationForm()
-    return render_template('profiles.html', title='Profiles', form=form)
+    print(data)
+    return render_template('profiles.html', title='Profiles', form=form, k_users=data)
+
+@app.route("/stress-test", methods=['GET', 'POST'])
+def stress_test():
+   return render_template('stress-test.html')
 
 
