@@ -14,6 +14,18 @@ app.config['SECRET_KEY'] = 'krishna'
 def home():
     return render_template('home.html', title='Home')
 
+@app.route("/stress")
+def stress():
+    return render_template('stress-test.html', title='Stress')
+
+@app.route("/questionaire")
+def questionaire():
+    return render_template('questionaire.html', title='Questionaire')
+
+@app.route("/dropdown")
+def dropdown():
+    return render_template('dropdown.html', title='Dropdown')
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
