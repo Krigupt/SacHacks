@@ -253,3 +253,8 @@ def disconnect():
     
     send({"name": name, "message": "has left the room"}, to=room)
     print(f"{name} has left the room {room}")
+
+@app.route("/blog", methods=['POST', 'GET'])
+def blog():
+    posts = Post.query.all()
+    return render_template('blog.html',posts=posts)
