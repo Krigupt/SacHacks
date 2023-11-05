@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Results</title>
+</head>
+<body>
+    <div>
+        <h2>Questionnaire Results</h2>
+        <p>Total Stress Level: <span id="totalScore">Loading...</span></p>
+    </div>
+
+    <script>
+        // Function to extract the total score from the URL query parameter
+        function getTotalScoreFromURL() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('totalScore');
+        }
+
+        // Function to update the total score on the results page
+        function updateTotalScore() {
+            const totalScoreElement = document.getElementById('totalScore');
+            const totalScore = getTotalScoreFromURL();
+
+            if (totalScore) {
+                totalScoreElement.textContent = totalScore;
+            } else {
+                totalScoreElement.textContent = 'N/A';
+            }
+        }
+
+        // Call the function to update the total score
+        updateTotalScore();
+    </script>
+</body>
+</html>

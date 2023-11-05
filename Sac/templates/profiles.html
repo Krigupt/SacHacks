@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            
+            background-color: #fff;
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
+            max-width: 100%;
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .product-description {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product">
+            <div class="product-image">
+                <img src="your-product-image.jpg" alt="Product Image">
+            </div>
+
+            <div class="product-details">
+                <h1 class="product-title">Fancy Product</h1>
+                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
+                <p class="product-price">$99.99</p>
+                <button class="product-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product">
+            <div class="product-image">
+                <img src="your-product-image.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h1 class="product-title">Fancy Product</h1>
+                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
+                <p class="product-price">$99.99</p>
+                <button class="product-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product">
+            <div class="product-image">
+                <img src="your-product-image.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h1 class="product-title">Fancy Product</h1>
+                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
+                <p class="product-price">$99.99</p>
+                <button class="product-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product">
+            <div class="product-image">
+                <img src="your-product-image.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h1 class="product-title">Fancy Product</h1>
+                <p class="product-description">This is a description of the fancy product. It has many amazing features and qualities.</p>
+                <p class="product-price">$99.99</p>
+                <button class="product-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock content %}
