@@ -2,6 +2,10 @@ import subprocess
 import tkinter as tk
 from flask import Flask, render_template, url_for, flash, redirect,request
 from forms import RegistrationForm, LoginForm
+import random
+import pandas as pd
+from sklearn.neighbors import NearestNeighbors
+import numpy as np
 
 import os
 #import util
@@ -30,11 +34,38 @@ def questionaire():
         results = [name, gender, occupation]
 
         for tag in qtags:
-            results.append(request.args.get(tag))
+            results.append(request.form.get(tag))
         
         print(results)
+        
+        df = pd.read_csv('data-final.csv', sep='\t') 
+        questions = pd.DataFrame(df, columns=['EXT1', 'EXT2', 'EXT3', 'EXT4', 'EXT5', 'EXT6', 'EXT7', 'EXT8', 'EXT9',
+       'EXT10', 'EST1', 'EST2', 'EST3', 'EST4', 'EST5', 'EST6', 'EST7', 'EST8',
+       'EST9', 'EST10', 'AGR1', 'AGR2', 'AGR3', 'AGR4', 'AGR5'])
+        
+        for i in questions.columns:
+            questions[i].fillna(questions[i].mean(), inplace=True)
 
-        return redirect(url_for('profiles'))
+        temp = []
+        for i in results[3:]:
+            if not i:
+                temp.append(2.5)
+            else:
+                temp.append(i)
+            
+        print(temp)
+
+        nbrs = NearestNeighbors(n_neighbors=5, algorithm='ball_tree').fit(questions)
+
+        input_data = pd.DataFrame([temp], columns=['EXT1', 'EXT2', 'EXT3', 'EXT4', 'EXT5', 'EXT6', 'EXT7', 'EXT8', 'EXT9',
+       'EXT10', 'EST1', 'EST2', 'EST3', 'EST4', 'EST5', 'EST6', 'EST7', 'EST8',
+       'EST9', 'EST10', 'AGR1', 'AGR2', 'AGR3', 'AGR4', 'AGR5'])
+
+        distance, indices = nbrs.kneighbors(input_data)
+
+        print([x for x in indices[0]])
+
+        return redirect(url_for('profiles',))
     
     return render_template('questionaire.html', title='Questionaire')
 

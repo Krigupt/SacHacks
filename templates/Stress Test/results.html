@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center mt-5">
+                <h2>Questionnaire Results</h2>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <p>Your Stress Level: <span class="badge badge-primary" id="stressLevel">Loading...</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to extract the total score from the URL query parameter
+        function getTotalScoreFromURL() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return parseInt(urlParams.get('totalScore'));
+        }
+
+        // Function to categorize stress levels based on the total score
+        function categorizeStressLevel(totalScore) {
+            if (totalScore >= 0 && totalScore <= 20) {
+                return "Healthy Levels of Stress";
+            } else if (totalScore >= 21 && totalScore <= 39) {
+                return "Moderately Stressed";
+            } else {
+                return "Unhealthy Levels of Stress";
+            }
+        }
+
+        // Function to update the stress level and perform redirection
+        function updateStressLevel() {
+            const stressLevelElement = document.getElementById('stressLevel');
+            const totalScore = getTotalScoreFromURL();
+
+            if (!isNaN(totalScore)) {
+                const stressCategory = categorizeStressLevel(totalScore);
+                stressLevelElement.textContent = stressCategory;
+
+                // Redirection based on stress level
+                if (stressCategory === "Healthy Levels of Stress") {
+                    window.location.href = 'healthy_stress.html';
+                } else if (stressCategory === "Moderately Stressed") {
+                    window.location.href = 'moderately_stressed.html';
+                } else {
+                    window.location.href = 'unhealthy_stress.html';
+                }
+            } else {
+                stressLevelElement.textContent = 'N/A';
+            }
+        }
+
+        // Call the function to update the stress level and perform redirection
+        updateStressLevel();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
