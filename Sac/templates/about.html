@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+
+    <style>
+.menu {
+    display: flex; /* Display child elements in a row */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Takes up the full width of the screen */
+}
+
+.circle-container{
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border: 5px solid #164863;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-right: 20px; /* Add spacing between circles */
+}
+
+.image-container {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #9BBEC8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+}
+
+.text-box {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    font-family: "Impact", fantasy;
+    font-size: 16px; /* Adjust the font size as needed */
+    color: #333; /* Specify the color for the labels */
+    
+    
+}
+
+.tech_list{
+    align-items: left;
+    
+}
+
+.tech_box{
+    width: 150px;
+  padding: 7px;
+  border: 2px solid #333;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+    font-size: 16px;
+    text-align: center;
+    font-family: "Impact", fantasy;
+    font-size: 20px; /* Adjust the font size as needed */
+    color: #333; /* Specify the color for the labels */
+    border-color: #61A3BA;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #F7EFE5;
+    margin-bottom:5px;
+}
+
+.dev_header {
+  text-align: left; /* Center the text horizontally */
+  padding: 30px; /* Add some padding for spacing */
+  background-color: #363062; /* Background color for the header */
+  color: #fff; /* Text color for the header */
+}
+
+.tech_header{
+    text-align: left; /* Center the text horizontally */
+  padding: 30px; /* Add some padding for spacing */
+  background-color: #D2E3C8; /* Background color for the header */
+  color: #fff; /* Text color for the header */
+}
+</style>
+
+<h1>
+    <div class="dev_header">Developers</div>
+</h1>
+<body> 
+  <div class="menu">
+    
+
+    <div class="circle-container">
+      <div class="circle">
+          <div class="image-container">
+              <img src="{{url_for('static',filename='finder.jpg')}}" alt="Image 1">
+          </div>
+          
+      </div> 
+      <div class="text-box">Friend Finder</div> 
+    </div>
+
+    <div class="circle-container">
+      <div class="circle">
+          <div class="image-container">
+              <img src="{{url_for('static',filename='blog.jpg')}}" alt="Image 2">
+          </div>
+      </div> 
+      <div class="text-box">Blog</div> 
+    </div>
+
+    <div class="circle-container">
+      <div class="circle">
+          <div class="image-container">
+              <img src="{{url_for('static',filename='chat.png')}}" alt="Image 3">
+          </div>
+      </div> 
+      <div class="text-box">Chatroom</div> 
+    </div>
+
+    <div class="circle-container">
+      <div class="circle">
+          <div class="image-container">
+              <img src="{{url_for('static',filename='stress.png')}}" alt="Image 4">
+          </div>
+      </div>
+      <div class="text-box">Stress Evaluator</div> 
+    </div>
+
+  </div>
+    
+</body>
+
+<h1>
+    <div class="tech_header">Technologies</div>
+</h1>
+
+<div class="tech_list">
+    <div class="tech_box">Python</div>
+    <div class="tech_box">Flask</div>
+</div>
+
+
+
+    
+{% endblock content %}
+
