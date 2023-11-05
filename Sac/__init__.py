@@ -1,4 +1,5 @@
 import os
+from flask_socketio import SocketIO
 from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
@@ -7,6 +8,7 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "KRISHNA"
+socketio = SocketIO(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:kv0309//@localhost/Sac'
 ##THIS IS A COMMAND FOR SQL to connext with XAMPP
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/fashion_classifier'
