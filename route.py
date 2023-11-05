@@ -20,12 +20,22 @@ def stress():
 
 @app.route("/questionaire", methods=['POST', 'GET'])
 def questionaire():
-    print(request.args.get('name'))
-    print(request.args.get('gender'))
-    print(request.args.get('occupation'))
-    print(request.args.get('EXT1'))
-    print(request.args.get('EXT2'))
-    print(request.args.get('EXT3'))
+    if request.method == 'POST':
+        name = request.form.get('name')
+        gender = request.form.get('gender')
+        occupation = request.form.get('occupation')
+
+        qtags = ['Q' + str(x) for x in range(1, 26)]
+
+        results = [name, gender, occupation]
+
+        for tag in qtags:
+            results.append(request.args.get(tag))
+        
+        print(results)
+
+        return redirect(url_for('profiles'))
+    
     return render_template('questionaire.html', title='Questionaire')
 
 @app.route("/dropdown")
@@ -53,6 +63,7 @@ def register():
 
 @app.route("/profiles", methods=['GET', 'POST'])
 def profiles():
+    print(request.method)
     form = RegistrationForm()
     return render_template('profiles.html', title='Profiles', form=form)
 
