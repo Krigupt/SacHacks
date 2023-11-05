@@ -124,9 +124,12 @@
                     <img src="{{url_for('static',filename='stress.png')}}" alt="Image 4">
                 </div>
             </div>
+
+            
             <div class="text-box">
-              
-              <button type="button">Stress Evaluator</button>
+              <a href="{{ url_for('stress_test') }}">
+                <button type="button">Stress Calculator</button>
+              </a>
           </div> 
           </div>
       

@@ -9,7 +9,7 @@ from flask_mail import Mail
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "KRISHNA"
 socketio = SocketIO(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:kv0309//@localhost/Sac'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 ##THIS IS A COMMAND FOR SQL to connext with XAMPP
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/fashion_classifier'
 db = SQLAlchemy(app)
