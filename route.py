@@ -18,8 +18,14 @@ def home():
 def stress():
     return render_template('stress-test.html', title='Stress')
 
-@app.route("/questionaire")
+@app.route("/questionaire", methods=['POST', 'GET'])
 def questionaire():
+    print(request.args.get('name'))
+    print(request.args.get('gender'))
+    print(request.args.get('occupation'))
+    print(request.args.get('EXT1'))
+    print(request.args.get('EXT2'))
+    print(request.args.get('EXT3'))
     return render_template('questionaire.html', title='Questionaire')
 
 @app.route("/dropdown")
@@ -55,4 +61,4 @@ def profiles():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000)

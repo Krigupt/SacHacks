@@ -100,13 +100,13 @@ label input[type="checkbox"] {
         <div class="category">
             <h3>Gender</h3>
             <label>
-                <input type="radio" name="EXT1" value="1"> Male
+                <input type="radio" name="gender" value="1"> Male
             </label>
             <label>
-                <input type="radio" name="EXT1" value="1"> Female
+                <input type="radio" name="gender" value="1"> Female
             </label>
             <label>
-                <input type="radio" name="EXT1" value="1"> Other - go to doctor
+                <input type="radio" name="gender" value="1"> Other - go to doctor
             </label>
 
             <!-- Repeat for other EXT questions -->
@@ -121,7 +121,7 @@ label input[type="checkbox"] {
 
 
 
-        <form method="POST" action="/process_form">
+        <form method="POST">
         <div class="category">
             <h3>I am the life of the party.</h3>
             <label>
@@ -623,17 +623,8 @@ label input[type="checkbox"] {
             </label>
             <!-- Repeat for other EXT questions -->
         </div>
-
-    </form>
-
-    
-
-    
-
-
-        <!-- Repeat for other personality categories (EST, AGR, CSN, OPN) -->
-
         <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
 {% endblock content %}
